@@ -1,9 +1,11 @@
 import React from 'react';
 
-function ScoreBoard() {
+function ScoreBoard(props) {  // Utiliza la prop para mostrar el marcador
   return (
     <div>
-      {/* Muestra el marcador aquí */}
+     <h2>Marcador:</h2>
+      <p>Jugador: {props.playerScore}</p>
+      <p>PC: {props.computerScore}</p>
     </div>
   );
 }

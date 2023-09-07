@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function PlayerOptions({ setPlayerName }) {
+function PlayerOptions(props) {
   const [nameInput, setNameInput] = useState(''); // Estado para el nombre del jugador
 
   const handleNameChange = (event) => {
@@ -9,7 +9,7 @@ function PlayerOptions({ setPlayerName }) {
 
   const handleNameConfirmation = () => {
     if (nameInput.trim() !== '') {
-      setPlayerName(nameInput); // Establece el nombre del jugador en el estado principal
+      props.onNameConfirmed(nameInput); // Llama a la función pasada como prop // Establece el nombre del jugador en el estado principal
       alert(`¡Hola, ${nameInput}!`); // Muestra un mensaje de bienvenida
     } else {
       alert('Por favor, ingresa tu nombre antes de jugar.'); // Mensaje de alerta si el nombre está vacío
