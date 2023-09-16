@@ -1,32 +1,32 @@
-#Juego de Piedra, Papel o Tijera - Implementación en React
-##Parte 1: Configuración Inicial
+# Juego de Piedra, Papel o Tijera - Implementación en React
+## Parte 1: Configuración Inicial
 Para comenzar, se configuró un nuevo proyecto React utilizando la herramienta de línea de comandos npx create-react-app. Esta herramienta proporciona una estructura inicial y configuración para una aplicación React.
 
-##Parte 2: Creación de Componentes Básicos
+## Parte 2: Creación de Componentes Básicos
 En esta etapa, se procedió a diseñar los componentes principales de la aplicación:
 
-#Componente App
+# Componente App
 El componente App representa la aplicación en su conjunto. En su estructura, se incluye:
 
 - Un formulario o componente de entrada de texto para capturar el nombre del jugador.
 - Subcomponentes para mostrar el marcador y los resultados de cada ronda.
 - Utiliza el estado (useState) de React para manejar el nombre ingresado por el jugador.
 
-##Subcomponentes
-#Componente PlayerOptions
+## Subcomponentes
+# Componente PlayerOptions
 Este componente se encarga de obtener el nombre del jugador. Incluye:
 
 - Un campo de entrada de texto donde el jugador puede ingresar su nombre.
 - Un botón "Confirmar" que, al hacer clic, muestra un mensaje de bienvenida al jugador.
 - Utiliza eventos (onChange) para capturar y actualizar el nombre del jugador.
 
-#Componente ScoreBoard
+# Componente ScoreBoard
 El componente ScoreBoard muestra el marcador actual del juego. Aunque aún no se ha implementado la lógica del marcador en esta etapa, se ha creado un espacio para mostrarlo.
 
-#Componente Result
+# Componente Result
 El componente Result se encargará de mostrar los resultados de cada ronda del juego. Al igual que el marcador, en esta etapa se ha creado una estructura básica para mostrar los resultados, pero la lógica de juego aún no se ha implementado.
 
-##Parte 3: Selección de la opción del jugador y de la PC
+## Parte 3: Selección de la opción del jugador y de la PC
 #Adiciones:
 **Imágenes de Opciones:** Se agregaron imágenes para las opciones del juego ("rock.png", "paper.png" y "scissors.png") y se importaron en el componente `Options.js` para mostrar visualmente las opciones seleccionadas por el jugador y generadas aleatoriamente para la computadora.
 
@@ -34,23 +34,23 @@ El componente Result se encargará de mostrar los resultados de cada ronda del j
 
 **Pasando Elecciones como Props:** Las elecciones del jugador y de la computadora se pasan como props (`playerChoice` y `computerChoice`) desde `Options.js` a otros componentes que necesitan acceder a estas elecciones.
 
-#Modificaciones:
+# Modificaciones:
 **Manejo de Elecciones:** Se realizó una modificación en el componente `Options.js` para manejar las elecciones del jugador y de la computadora utilizando estados locales. Cuando se selecciona una opción, estas elecciones se actualizan y se pasan como argumentos a la función `onSelectOption`, que se utiliza para comunicar las elecciones al componente principal `App.js`.
 
 **Componente Result.js:** Se modificó `Result.js` para mostrar los resultados del juego, incluyendo las elecciones del jugador y de la computadora, así como el resultado del juego (ganador o empate). Este componente recibe las elecciones como props y calcula el resultado en función de las reglas del juego.
 
 **Componente ScoreBoard.js:** Se modificó `ScoreBoard.js` para mostrar el marcador del juego. Este componente recibe las elecciones como props y puede ser utilizado para llevar un registro de las puntuaciones del jugador y de la computadora.
 
-##Parte 4: Determinación del ganador y actualización del marcador
+## Parte 4: Determinación del ganador y actualización del marcador
 #Adiciones:
 **Lógica de Determinación del Ganador:** Se implementó la lógica para determinar el ganador en el componente `Result.js` utilizando las elecciones del jugador y de la computadora. El resultado se muestra en función de las reglas del juego (por ejemplo, "Ganaste" o "La PC ganó").
 
-#Modificaciones:
+# Modificaciones:
 **Componente App.js:** Se modificó el componente `App.js` para incluir los nuevos componentes *Result* y *ScoreBoard* en la interfaz de usuario.
 
 **Manejo de Elecciones en Options.js:** Se ajustó el manejo de las elecciones en el componente `Options.js` para asegurarse de que se actualicen correctamente y se pasen como props a otros componentes.
 
-##Implementación de React Props y Cambios en la Visualización de Imágenes
+## Implementación de React Props y Cambios en la Visualización de Imágenes
 #Adiciones:
 **Uso de React Props:** Se implementó el uso de React Props para pasar datos y funciones entre componentes de React de manera más organizada y modular.
 
@@ -60,14 +60,14 @@ El componente Result se encargará de mostrar los resultados de cada ronda del j
 
 **Imágenes de Opciones:** Se agregaron imágenes para las opciones del juego ("rock.png", "paper.png" y "scissors.png") y se importaron en el componente Options.js para su visualización.
 
-#Modificaciones:
+# Modificaciones:
 **Componente Options.js:** Se modificó el componente `Options.js` para manejar las elecciones del jugador y de la computadora utilizando estados locales (`playerChoice` y `computerChoice`). Se agregó una función `handleOptionClick` para manejar la selección de opciones y se llamó a `props.onSelectOption` para comunicar las elecciones al componente principal `App.js`.
 
 **Componente App.js:** Se modificó el componente `App.js` para incluir los nuevos componentes *Options, ScoreBoard* y *Result* en la interfaz de usuario. Las elecciones del jugador y de la computadora se pasan como props a estos componentes para mostrar resultados y el marcador.
 
 **Manejo de Imágenes:** Se modificó el componente `Options.js` para manejar la visualización de imágenes de las opciones del juego. Se importaron las imágenes y se utilizaron en las etiquetas <img> para mostrar las opciones seleccionadas por el jugador y la computadora.
 
-##Parte 5, 6 y 7
+## Parte 5, 6 y 7
 #Cambios Realizados
 
 **Contador de Victorias:** Se ha añadido un contador de victorias tanto para el jugador como para la computadora. Estos contadores se inicializan en cero al inicio del juego y se actualizan en función de los resultados de cada ronda.
@@ -78,7 +78,7 @@ El componente Result se encargará de mostrar los resultados de cada ronda del j
 
 **Reinicio del Juego:** Después de que se haya anunciado al ganador, se implementa una función de reinicio que restablece las puntuaciones del jugador y la computadora, así como el contador de rondas. Esto permite que el juego comience nuevamente desde cero.
 
-##Parte 8: Estilos CSS con Styled Components y otros cambios estéticos
+## Parte 8: Estilos CSS con Styled Components y otros cambios estéticos
 
 **Botones de Reinicio:** Se han agregado botones de reinicio tanto para reiniciar la partida actual como para reiniciar por completo el juego. Esto proporciona una experiencia más amigable y permite a los jugadores tener un mayor control sobre el flujo del juego.
 
