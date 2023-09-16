@@ -86,7 +86,7 @@ function App() {
     setShowTitle(true); // Mostrar el título nuevamente al reiniciar el juego
     setShowResults(false); // Ocultar la sección de resultados al reiniciar el juego
   };
-  
+
   const handleNameConfirmed = (name) => {
     setPlayerName(name);
     setShowTitle(false); // Ocultar el título al confirmar el nombre
@@ -131,7 +131,9 @@ function App() {
             <Title>¡Hola, {playerName}!</Title>
             {winner ? (
               <div>
-                <h2>{winner === playerName ? '¡Has ganado!' : 'La PC ha ganado.'}</h2>
+                <h2>
+                  {winner === playerName ? '¡Has ganado!' : 'La PC ha ganado.'}
+                </h2>
                 <Button onClick={resetGame}>Reiniciar Partida</Button>
                 <Button onClick={goToNameInput}>Reiniciar Juego</Button>
               </div>
@@ -144,11 +146,13 @@ function App() {
                   playerChoice={playerChoice}
                   computerChoice={computerChoice}
                 />
-                {showResults && <Result
-                  playerChoice={playerChoice}
-                  computerChoice={computerChoice}
-                  round={round}
-                />}
+                {showResults && (
+                  <Result
+                    playerChoice={playerChoice}
+                    computerChoice={computerChoice}
+                    round={round}
+                  />
+                )}
                 <Options onSelectOption={handleOptionSelection} />
               </div>
             )}
