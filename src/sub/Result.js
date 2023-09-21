@@ -1,9 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
-function Result(props) {
-  const { playerChoice, computerChoice } = props;
+const ResultContainer = styled.div`
+  text-align: center;
+  margin-top: 20px; /* Margen superior para separar el resultado de las opciones de juego */
+`;
 
-  // Implementa la lógica para determinar el resultado del juego
+const ResultText = styled.h2`
+  color: #333;
+  font-size: 24px;
+`;
+
+function Result({ playerChoice, computerChoice }) {
+  // Función para determinar el ganador de la ronda
   const determineWinner = () => {
     if (
       (playerChoice === 'rock' && computerChoice === 'scissors') ||
@@ -22,12 +31,12 @@ function Result(props) {
     }
   };
 
-  const result = determineWinner();
+  const result = determineWinner(); // Determina el resultado de la ronda
 
   return (
-    <div>
-      <h2>{result}</h2>
-    </div>
+    <ResultContainer>
+      <ResultText>{result}</ResultText> {/* Muestra el resultado de la ronda en pantalla */}
+    </ResultContainer>
   );
 }
 
